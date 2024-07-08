@@ -30,16 +30,21 @@
 			</label>
 
 			<label>Password:
-				<input name="password" type="password" required pattern=".{8,20}" />
+				<!-- https://stackoverflow.com/a/25973599 /> -->
+				<input name="password" type="password" placeholder="Password" required pattern="^\S{8,}$"
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 8 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;">
 				<span class="validity"></span>
 				<p>Passwords must be 8-20 characters in length.</p>
 			</label>
 
 			<label>Confirm Password:
-				<input name="confirm-password" type="password" required pattern=".{8,20}" />
+				<!-- https://stackoverflow.com/a/25973599 /> -->
+				<input name="password_two" type="password" placeholder="Verify Password" required pattern="^\S{8,}$"
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');">
 				<span class="validity"></span>
 				<p>Passwords must match.</p>
 			</label>
+
 
 			<button type="submit">Sign Up</button>
 		</form>
