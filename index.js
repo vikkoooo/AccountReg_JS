@@ -4,7 +4,7 @@ const nameInput = document.querySelector(`input[name="name"]`);
 const usernameInput = document.querySelector(`input[name="username"]`);
 const emailInput = document.querySelector(`input[name="email"]`);
 const passwordInput = document.querySelector(`input[name="password"]`);
-const confirmPasswordInput = document.querySelector(`input[name="password-two"]`);
+const confirmPasswordInput = document.querySelector(`input[name="password_two"]`);
 
 // Helper text fields
 const nameHelp = document.querySelector(".nameHelp");
@@ -13,48 +13,92 @@ const emailHelp = document.querySelector(".emailHelp");
 const passwordHelp = document.querySelector(".passwordHelp");
 const confirmPasswordHelp = document.querySelector(".confirmPasswordHelp");
 
+// Button
+const submitButton = document.querySelector('.submitButton');
+
 // Add show/hide helpers on focus or blue (defocus)
 // Name
 nameInput.addEventListener("focus", () => {
-	nameHelp.style.display = "block"; // normal default behaviour
+	// normal default behaviour
+	nameHelp.classList.remove("hide");
+	nameHelp.classList.add("show");
 });
 
 nameInput.addEventListener("blur", () => {
-	nameHelp.style.display = "none"; // hides element
+	// hides element
+	nameHelp.classList.add("hide");
+	nameHelp.classList.remove("show");
 });
 
 // Username
 usernameInput.addEventListener("focus", () => {
-	usernameHelp.style.display = "block";
+	usernameHelp.classList.remove("hide");
+	usernameHelp.classList.add("show");
 });
 
 usernameInput.addEventListener("blur", () => {
-	usernameHelp.style.display = "none";
+	usernameHelp.classList.add("hide");
+	usernameHelp.classList.remove("show");
 });
 
 // Email
 emailInput.addEventListener("focus", () => {
-	emailHelp.style.display = "block";
+	emailHelp.classList.remove("hide");
+	emailHelp.classList.add("show");
 });
 
 emailInput.addEventListener("blur", () => {
-	emailHelp.style.display = "none";
+	emailHelp.classList.add("hide");
+	emailHelp.classList.remove("show");
 });
 
 // Password
 passwordInput.addEventListener("focus", () => {
-	passwordHelp.style.display = "block";
+	passwordHelp.classList.remove("hide");
+	passwordHelp.classList.add("show");
 });
 
 passwordInput.addEventListener("blur", () => {
-	passwordHelp.style.display = "none";
+	passwordHelp.classList.add("hide");
+	passwordHelp.classList.remove("show");
 });
 
 // Confirm password
 confirmPasswordInput.addEventListener("focus", () => {
-	confirmPasswordHelp.style.display = "block";
+	confirmPasswordHelp.classList.remove("hide");
+	confirmPasswordHelp.classList.add("show");
 });
 
 confirmPasswordInput.addEventListener("blur", () => {
-	confirmPasswordHelp.style.display = "none";
+	confirmPasswordHelp.classList.add("hide");
+	confirmPasswordHelp.classList.remove("show");
+});
+
+// Disable/enable button
+submitButton.disabled = true; // default behaviour
+
+// function to check validity
+function checkPasswordValidity() {
+	if (passwordInput.value === confirmPasswordInput.value && passwordInput.checkValidity() && confirmPasswordInput.checkValidity()) {
+		submitButton.disabled = false;
+	} else {
+		submitButton.disabled = true;
+	}
+}
+
+// fire event when user manipulates the field & exits the field
+passwordInput.addEventListener("input", () => {
+	checkPasswordValidity();
+});
+
+passwordInput.addEventListener("blur", () => {
+	checkPasswordValidity();
+});
+
+confirmPasswordInput.addEventListener("input", () => {
+	checkPasswordValidity();
+});
+
+confirmPasswordInput.addEventListener("blur", () => {
+	checkPasswordValidity();
 });

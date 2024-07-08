@@ -15,21 +15,22 @@
 			<label>Full Name:
 				<input name="name" type="text" placeholder="John Doe" required pattern="^(\w\w+)\s(\w+)$" />
 				<span class="validity"></span>
-				<p class="nameHelp">Name must contain a first and last name, minimum two characters each and separated
+				<p class="nameHelp hide">Name must contain a first and last name, minimum two characters each and
+					separated
 					by space.</p>
 			</label>
 
 			<label>Select Username:
 				<input name="username" type="text" placeholder="username" required pattern="[a-z]{4,12}" />
 				<span class="validity"></span>
-				<p class="usernameHelp">Usernames must be lowercase and 4-12 characters in length.</p>
+				<p class="usernameHelp hide">Usernames must be lowercase and 4-12 characters in length.</p>
 			</label>
 
 			<label>Email:
 				<input name="email" type="email" placeholder="your@email.com" required
 					pattern="[^@\s]+@[^@\s]+\.[^@\s]+" />
 				<span class="validity"></span>
-				<p class="emailHelp">Email must be a valid email address in the format your@email.com</p>
+				<p class="emailHelp hide">Email must be a valid email address in the format your@email.com</p>
 			</label>
 
 			<label>Password:
@@ -37,18 +38,18 @@
 				<input name="password" type="password" placeholder="Password" required pattern="^\S{8,}$"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 8 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;">
 				<span class="validity"></span>
-				<p class="passwordHelp">Passwords must be 8-20 characters in length.</p>
+				<p class="passwordHelp hide">Passwords must be 8-20 characters in length.</p>
 			</label>
 
 			<label>Confirm Password:
 				<!-- https://stackoverflow.com/a/25973599 /> -->
-				<input name="password-two" type="password" placeholder="Verify Password" required pattern="^\S{8,}$"
+				<input name="password_two" type="password" placeholder="Verify Password" required pattern="^\S{8,}$"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');">
 				<span class="validity"></span>
-				<p class="confirmPasswordHelp">Passwords must match.</p>
+				<p class="confirmPasswordHelp hide">Passwords must match.</p>
 			</label>
 
-			<button type="submit">Sign Up</button>
+			<button class="submitButton" type="submit">Sign Up</button>
 		</form>
 	</fieldset>
 	<script src="index.js"></script>
