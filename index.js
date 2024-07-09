@@ -13,8 +13,9 @@ const emailHelp = document.querySelector(".emailHelp");
 const passwordHelp = document.querySelector(".passwordHelp");
 const confirmPasswordHelp = document.querySelector(".confirmPasswordHelp");
 
-// Button
-const submitButton = document.querySelector('.submitButton');
+// Form and button
+const registerForm = document.querySelector(".registerForm");
+const submitButton = document.querySelector(".submitButton");
 
 // Add show/hide helpers on focus or blue (defocus)
 // Name
@@ -75,7 +76,7 @@ confirmPasswordInput.addEventListener("blur", () => {
 });
 
 // Disable/enable button
-submitButton.disabled = true; // default behaviour
+submitButton.disabled = false; // default behaviour
 
 // function to check validity
 function checkPasswordValidity() {
@@ -101,4 +102,16 @@ confirmPasswordInput.addEventListener("input", () => {
 
 confirmPasswordInput.addEventListener("blur", () => {
 	checkPasswordValidity();
+});
+
+// Submit form listener
+registerForm.addEventListener("submit", (e) => {
+	e.preventDefault(); // disable page reload
+	const data = {
+		name: nameInput.value,
+		username: usernameInput.value,
+		email: emailInput.value,
+		password: passwordInput.value // todo: hash password
+	}
+	console.log(data);
 });

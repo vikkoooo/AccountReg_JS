@@ -9,22 +9,23 @@ p {
 }
 
 input:valid {
-	background-color: palegreen;
+	/* chrome default:	background-color: rgb(232, 240, 254); */
+	background-color: rgb(223, 247, 236);
 }
 
 input:invalid {
-	background-color: lightpink;
+	background-color: rgb(252, 232, 232);
 }
 
 input:valid+span::after {
-	position: absolute;
 	content: "✓";
+	position: absolute;
 	padding-left: 5px;
 }
 
 input:invalid+span::after {
-	position: absolute;
 	content: "✖";
+	position: absolute;
 	padding-left: 5px;
 }
 
