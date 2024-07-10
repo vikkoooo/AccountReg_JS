@@ -92,21 +92,8 @@ function checkPasswordValidity() {
 }
 
 // fire event when user manipulates the field & exits the field
-passwordInput.addEventListener("input", () => {
-	checkPasswordValidity();
-});
-
-passwordInput.addEventListener("blur", () => {
-	checkPasswordValidity();
-});
-
-confirmPasswordInput.addEventListener("input", () => {
-	checkPasswordValidity();
-});
-
-confirmPasswordInput.addEventListener("blur", () => {
-	checkPasswordValidity();
-});
+passwordInput.addEventListener("input", () => { checkPasswordValidity(); });
+confirmPasswordInput.addEventListener("input", () => { checkPasswordValidity(); });
 
 // Submit form listener
 registerForm.addEventListener("submit", (e) => {
