@@ -80,6 +80,10 @@ submitButton.disabled = false; // default behaviour
 
 // function to check validity
 function checkPasswordValidity() {
+	confirmPasswordInput.setCustomValidity(
+		confirmPasswordInput.value !== passwordInput.value ? 'Passwords do not match' : ''
+	);
+
 	if (passwordInput.value === confirmPasswordInput.value && passwordInput.checkValidity() && confirmPasswordInput.checkValidity()) {
 		submitButton.disabled = false;
 	} else {
